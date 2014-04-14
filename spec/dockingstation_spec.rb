@@ -1,28 +1,30 @@
 require 'dockingstation'
 
 describe "Docking Station" do
+ 	let(:bike) {double :bike}
+ 	let(:station) { DockingStation.new(capacity: 20)}
 
 it 'should accept a bike' do
-	bike = double :bike
-	station = DockingStation.new(capacity: 20)
+	# bike = double :bike
+	# station = DockingStation.new(capacity: 20)
 	expect(station.bike_count).to eq(0)
 	station.dock(bike)
 	expect(station.bike_count).to eq(1)
 end
 
 it 'should release a bike' do
-	bike = double :bike
-	station = DockingStation.new(capacity: 20)
+	# bike = double :bike
+	# station = DockingStation.new(capacity: 20)
 	station.dock(bike)
 	station.release(bike)
 	expect(station.bike_count).to eq(0)
 end
 
 it "should know when it's full" do
-	bike = double :bike
-	station = DockingStation.new(capacity: 20)
+	# bike = double :bike
+	# station = DockingStation.new(capacity: 20)
 	expect(station).not_to be_full
-	20.times { station.dock(bike)}
+	20.times { station.dock(bike) }
 	expect(station).to be_full
 end
 
