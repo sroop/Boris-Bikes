@@ -24,4 +24,8 @@ def full?
 	bike_count == @capacity
 end
 
+def available_bikes
+	@bikes.select { |bike| !bike.broken? }
+end
+
 end
