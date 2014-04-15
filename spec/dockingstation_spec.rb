@@ -1,5 +1,4 @@
 require 'dockingstation'
-require 'bikes'
 
 describe "Docking Station" do
  	let(:bike) {double :bike}
@@ -35,12 +34,8 @@ it "should not accept a bike if it's full" do
 end
 
 it 'should provide a list of available bikes' do
-	working_bike = double :bike
-	broken_bike = double :bike
-	broken_bike.stub(:break!).and_return(true)
-	# expect(broken_bike).to receive(:break!)
-	broken_bike.break!
-	broken_bike.stub(:broken?).and_return(true)
+	working_bike = double :bike, broken?: false
+	broken_bike = double :bike, broken?: true
 	station.dock(working_bike)
 	station.dock(broken_bike)
 	expect(station.available_bikes).to eq([working_bike])
