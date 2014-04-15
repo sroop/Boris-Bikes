@@ -10,7 +10,7 @@ class DockingStation
 		@bikes.count
 	end 
 
-	def dock(bike)
+	def accept(bike)
 		raise "Station is full" if full?
 		@bikes << bike
 	end
