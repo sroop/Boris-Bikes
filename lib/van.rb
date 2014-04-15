@@ -1,5 +1,5 @@
 class Van
-	
+
 def initialize
 	@bikes = []
 end
@@ -10,6 +10,10 @@ end
 
 def pickup(bike)
 	@bikes << bike
+end
+
+def dropoff(bike)
+	@bikes.delete(bike)
 end
 
 end
