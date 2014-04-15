@@ -27,12 +27,5 @@ it "should not accept a bike if it's full" do
 	expect(lambda { station.dock(bike) }).to raise_error(RuntimeError)
 end
 
-it 'should provide a list of available bikes' do
-	working_bike = double :bike, broken?: false
-	broken_bike = double :bike, broken?: true
-	station.dock(working_bike)
-	station.dock(broken_bike)
-	expect(station.available_bikes).to eq([working_bike])
-end
 
 end
