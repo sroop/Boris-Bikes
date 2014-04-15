@@ -34,8 +34,9 @@ it "should not accept a bike if it's full" do
 end
 
 it 'should provide a list of available bikes' do
-	working_bike = double :bike, broken?: false
-	broken_bike = double :bike, broken?: true
+	working_bike = double(:bike, {broken?: false})
+	broken_bike = double(:bike, {broken?: true})
+	# broken_bike.break!
 	station.dock(working_bike)
 	station.dock(broken_bike)
 	expect(station.available_bikes).to eq([working_bike])
