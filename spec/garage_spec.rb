@@ -1,5 +1,4 @@
 require 'garage'
-require 'bikes'
 
 describe "The Garage" do
 	let(:broken_bike) { double :bike, broken?: false, fix!: :blah }
@@ -12,18 +11,9 @@ it 'should accept a broken bike' do
 end
 
 it 'should repair a broken bike' do
-	# garage.accept(broken_bike)
-	# garage.repair(broken_bike)
-	# expect(broken_bike).not_to be_broken
-	bike = Bikes.new
-	expect(bike).not_to be_broken
-	bike.break!
-	expect(bike).to be_broken
-	garage.accept(bike)
-	garage.repair(bike)
-	expect(bike).not_to be_broken
-
-
+	garage.accept(broken_bike)
+	garage.repair(broken_bike)
+	expect(broken_bike).not_to be_broken
 	bike = double :bike
 
 end
