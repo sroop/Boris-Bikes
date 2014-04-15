@@ -4,28 +4,28 @@ describe "Van" do
 	let(:bike) { double :bike }
 	let(:van) { Van.new(capacity: 10) }
 
-it 'should pickup a bike' do
+it 'should accept a bike' do
 	expect(van.bike_count).to eq(0)
-	van.pickup(bike)
+	van.accept(bike)
 	expect(van.bike_count).to eq(1)
 end
 
-it 'should dropoff a bike' do
-	van.pickup(bike)
+it 'should release a bike' do
+	van.accept(bike)
 	expect(van.bike_count).to eq(1)
-	van.dropoff(bike)
+	van.release(bike)
 	expect(van.bike_count).to eq(0)
 end
 
 it "should know when it's full" do
 	expect(van).not_to be_full
-	10.times { van.pickup(bike) }
+	10.times { van.accept(bike) }
 	expect(van).to be_full
 end
 
 it "should not pickup a bike if it's full" do
-	10.times { van.pickup(bike) }
-	expect(lambda { van.pickup(bike) }).to raise_error(RuntimeError)
+	10.times { van.accept(bike) }
+	expect(lambda { van.accept(bike) }).to raise_error(RuntimeError)
 end
 
 end

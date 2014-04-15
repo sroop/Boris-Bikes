@@ -10,12 +10,12 @@ def bike_count
 	@bikes.count
 end 
 
-def pickup(bike)
+def accept(bike)
 	raise "Van is full" if full?
 	@bikes << bike
 end
 
-def dropoff(bike)
+def release(bike)
 	@bikes.delete(bike)
 end
 
