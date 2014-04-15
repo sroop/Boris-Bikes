@@ -7,6 +7,8 @@ end
 describe "Bike Container" do
 
 	let(:bike) {double :bike}
+	let(:broken_bike) {double :bike, broken?: true}
+	let(:working_bike) {double :bike, broken?: false}
 	let(:container) {DummyContainer.new}
 
 	it 'accepts bikes' do
@@ -35,5 +37,10 @@ describe "Bike Container" do
 		expect(lambda { container.accept(bike) }).to raise_error(RuntimeError)
 	end
 
+	it 'segregates broken bikes' do
+		container.accept(broken_bike)
+		container.accept(working_bike)
+		expect(container.broken_bikes).to eq([broken_bike])
+	end
 
 end

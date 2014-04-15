@@ -6,6 +6,10 @@ module BikeContainer
 		@bikes ||= []
 	end
 
+	def broken_bikes
+		bikes.select { |bike| bike.broken? }
+	end
+
 	def capacity
 		@capacity ||= DEFAULT_CAPACITY
 	end
