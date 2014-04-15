@@ -4,6 +4,10 @@ describe "The Garage" do
 	let(:broken_bike) { double :bike, broken?: false }
 	let(:garage) { Garage.new(capacity: 30)}
 
+it 'should be able to request broken bikes' do
+	# do you have any broken bikes?
+end
+
 it 'should accept a broken bike' do
 	expect(garage.bike_count).to eq(0)
 	garage.accept(broken_bike)
