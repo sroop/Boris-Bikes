@@ -43,4 +43,10 @@ describe "Bike Container" do
 		expect(container.broken_bikes).to eq([broken_bike])
 	end
 
+	it 'segregates working bikes' do
+		container.accept(broken_bike)
+		container.accept(working_bike)
+		expect(container.working_bikes).to eq([working_bike])
+	end
+
 end
