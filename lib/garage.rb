@@ -16,4 +16,12 @@ class Garage
 		broken_bike.fix!
 	end
 
+	def release_working_bike
+		working_bikes.map { |bike| @bikes.delete(bike) }
+	end
+
+	def working_bikes
+		@bikes.reject { |bike| bike.broken? }
+	end
+
 end
