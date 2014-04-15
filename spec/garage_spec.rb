@@ -30,4 +30,9 @@ it "should know when it's reached full capacity" do
 	expect(garage).to be_full
 end
 
+it "should not accept a broken bike if it's reached full capacity" do
+	30.times { garage.accept(broken_bike) }
+	expect(lambda {garage.accept(broken_bike)}).to raise_error(RuntimeError)
+end
+
 end

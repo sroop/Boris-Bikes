@@ -32,7 +32,7 @@ it "should know when it's reached full capacity" do
 	expect(station).to be_full
 end
 
-it "should not accept a bike if it's full" do
+it "should not accept a bike if it's reached full capacity" do
 	20.times { station.accept(bike) }
 	expect(lambda { station.accept(bike) }).to raise_error(RuntimeError)
 end
