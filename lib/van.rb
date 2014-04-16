@@ -1,4 +1,9 @@
+require_relative 'bike_container'
+
 class Van
+
+	include BikeContainer
+	
 	DEFAULT_CAPACITY = 10
 
 def initialize(options = {})
@@ -6,21 +11,21 @@ def initialize(options = {})
 	@bikes = []
 end
 
-def bike_count
-	@bikes.count
-end 
+# def bike_count
+# 	@bikes.count
+# end 
 
-def accept(bike)
-	raise "Van is full" if full?
-	@bikes << bike
-end
+# def accept(bike)
+# 	raise "Van is full" if full?
+# 	@bikes << bike
+# end
 
-def release(bike)
-	@bikes.delete(bike)
-end
+# def release(bike)
+# 	@bikes.delete(bike)
+# end
 
-def full?
-	bike_count == @capacity
-end
+# def full?
+# 	bike_count == @capacity
+# end
 
 end
