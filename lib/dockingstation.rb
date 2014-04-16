@@ -26,10 +26,6 @@ class DockingStation
 		#and releases it to a person
 	end
 
-	# def dock(bike)
-	# 	bikes << bike
-	# end
-
 # alias :dock :accept
 # alias :rent :release
 

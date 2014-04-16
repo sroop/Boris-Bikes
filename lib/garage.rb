@@ -11,7 +11,7 @@ class Garage
 		@bikes = []
 	end
 
-	def repair(bike)
-		bike.fix!
-	end
+	# def repair(bike)
+	# 	bike.fix!
+	# end
 end
