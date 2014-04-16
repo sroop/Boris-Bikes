@@ -23,8 +23,20 @@ module BikeContainer
 		bikes << bike
 	end
 
+	# def accept(bike, object)
+	# 	raise "Full up! No more space!" if full?
+	# 	if self.class == Van
+	# 		bikes << bike
+	# 		object.release(bike)
+	# 	else
+	# 		raise "You not allowed because you are a #{object.class}"
+	# 	end
+	# end
+
+	
 	def release(bike)
-		bikes.select { |bike| bikes.delete(bike)}
+		raise "Sorry! No bikes available!" if bikes == []
+		bikes.delete(bike)
 	end
 
 	def full?

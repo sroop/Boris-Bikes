@@ -3,29 +3,22 @@ require_relative 'bike_container'
 class Van
 
 	include BikeContainer
-	
+
 	DEFAULT_CAPACITY = 10
 
-def initialize(options = {})
-	@capacity = options.fetch(:capacity, DEFAULT_CAPACITY)
-	@bikes = []
-end
+	def initialize(options = {})
+		@capacity = options.fetch(:capacity, DEFAULT_CAPACITY)
+		@bikes = []
+	end
 
-# def bike_count
-# 	@bikes.count
-# end 
+	# def collect_broken_bikes_from(station)
+	# 	station.broken_bikes.each do |bike| 
+	# 		self.bikes << bike 
+	# 		station.bikes.delete(bike)
+	# 	end
+	# end
 
-# def accept(bike)
-# 	raise "Van is full" if full?
-# 	@bikes << bike
-# end
-
-# def release(bike)
-# 	@bikes.delete(bike)
-# end
-
-# def full?
-# 	bike_count == @capacity
-# end
+# alias :pickup :accept
+# alias :dropoff :release
 
 end

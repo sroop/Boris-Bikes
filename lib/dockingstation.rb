@@ -11,36 +11,17 @@ class DockingStation
 		@bikes = []
 	end
 
-alias :dock :accept
-alias :rent :release
+	def release_broken_bikes_to(van)
+		broken_bikes.map { |bike| release(bike) }
+		# somehow the van needs to accept these?
+	end
 
-	# def bike_count
-	# 	@bikes.count
-	# end 
-
-	# def accept(bike)
-	# 	raise "Station is full" if full?
-	# 	@bikes << bike
+	# def dock(bike)
+	# 	bikes << bike
 	# end
 
-	# def full?
-	# 	bike_count == @capacity
-	# end
+# alias :dock :accept
+# alias :rent :release
 
-	# def working_bikes
-	# 	@bikes.reject { |bike| bike.broken? }
-	# end
-
-	# def broken_bikes
-	# 	@bikes.select { |bike| bike.broken? }
-	# end
-
-	# def release_broken_bikes
-	# 	broken_bikes.map { |bike| @bikes.delete(bike) }
-	# end
-
-	# def release_working_bikes
-	# 	working_bikes.map { |bike| @bikes.delete(bike) }
-	# end
 
 end
