@@ -6,6 +6,10 @@ module BikeContainer
 		@bikes ||= []
 	end
 
+	def has_bikes?
+		bikes.any?
+	end
+
 	def working_bikes
 		bikes.reject { |bike| bike.broken? }
 	end
@@ -23,17 +27,6 @@ module BikeContainer
 		bikes << bike
 	end
 
-	# def accept(bike, object)
-	# 	raise "Full up! No more space!" if full?
-	# 	if self.class == Van
-	# 		bikes << bike
-	# 		object.release(bike)
-	# 	else
-	# 		raise "You not allowed because you are a #{object.class}"
-	# 	end
-	# end
-
-	
 	def release(bike)
 		raise "Sorry! No bikes available!" if bikes == []
 		bikes.delete(bike)
