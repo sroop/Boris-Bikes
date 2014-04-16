@@ -7,7 +7,7 @@ describe "Docking Station" do
 	let(:working_bike) {double :bike, broken?: false}
 	let(:container) {DummyContainer.new}
 
-	it 'docks bikes' do
+	it 'accepts bikes' do
 		expect(container.bikes.count).to eq(0)
 		container.accept(bike)
 		expect(container.bikes.count).to eq(1)
