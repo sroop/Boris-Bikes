@@ -12,7 +12,12 @@ class Garage
 	end
 
 
-	# def repair(bike)
-	# 	bike.fix!
-	# end
+	def repair(bike)
+		bike.fix!
+	end
+
+	def accept_broken_bikes_from(van)
+		van.release_broken_bikes_to(self)
+	end
+
 end

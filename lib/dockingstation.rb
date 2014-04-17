@@ -21,9 +21,9 @@ class DockingStation
 			raise "Nice try you fucking idiot!!"
 		end
 		#takes a list of broken bikes
-		#deletes them out of the station 
+		#deletes them out of the station's container
 		#and releases them to the van
-		#the van needs to accept these
+		#the van accepts these into his own container
 	end
 
 	def release_one_working_bike_to(person)
@@ -36,6 +36,5 @@ class DockingStation
 
 # alias :dock :accept
 # alias :rent :release
-
 
 end

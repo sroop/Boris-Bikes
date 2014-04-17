@@ -15,9 +15,14 @@ class Van
 		station.release_broken_bikes_to(self)
 	end
 
+	def release_broken_bikes_to(garage)
+		broken_bikes.each do |bike| 
+			release(bike)
+			garage.bikes << bike
+		end
+	end
+
 # alias :pickup :accept
 # alias :dropoff :release
-
-	
 
 end

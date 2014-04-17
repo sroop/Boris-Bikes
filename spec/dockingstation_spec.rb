@@ -39,5 +39,4 @@ it 'does not release broken bikes to a person' do
 	expect { station.release_broken_bikes_to(person) }.to raise_error(RuntimeError)
 end
 
-
 end
