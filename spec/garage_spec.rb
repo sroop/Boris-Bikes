@@ -8,6 +8,7 @@ describe "The Garage" do
 	let(:garage) { Garage.new }
 	let(:van) {double :van}
 
+
 # 	it 'repairs broken bikes' do
 # 	garage.accept(broken_bike_1)
 # 	expect(broken_bike).to receive(:fix!)

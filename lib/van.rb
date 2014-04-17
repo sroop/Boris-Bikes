@@ -11,14 +11,13 @@ class Van
 		@bikes = []
 	end
 
-	# def collect_broken_bikes_from(station)
-	# 	station.broken_bikes.each do |bike| 
-	# 		self.bikes << bike 
-	# 		station.bikes.delete(bike)
-	# 	end
-	# end
+	def accept_broken_bikes_from(station)
+		station.release_broken_bikes_to(self)
+	end
 
 # alias :pickup :accept
 # alias :dropoff :release
+
+	
 
 end

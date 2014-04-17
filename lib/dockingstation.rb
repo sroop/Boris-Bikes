@@ -12,14 +12,22 @@ class DockingStation
 	end
 
 	def release_broken_bikes_to(van)
-		broken_bikes.map { |bike| release(bike) }
+		if van.class == Van
+			broken_bikes.each do |bike| 
+				release(bike)
+				van.bikes << bike
+			end
+		else
+			raise "Nice try you fucking idiot!!"
+		end
 		#takes a list of broken bikes
 		#deletes them out of the station 
 		#and releases them to the van
-		# somehow the van needs to accept these?
+		#the van needs to accept these
 	end
 
 	def release_one_working_bike_to(person)
+		raise "Sorry! No bikes available!" if bikes == []
 		working_bikes.pop(1)
 		# takes a list of working bikes
 		#deletes ONE out of this list
