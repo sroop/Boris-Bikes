@@ -30,6 +30,17 @@ class Van
 		garage.release_working_bikes_to(self)
 	end
 
+	def release_working_bikes_to(station)
+		if station.class == DockingStation
+			working_bikes.each do |bike|
+			release(bike)
+			station.bikes << bike
+			end
+		else
+			raise "Those bikes aren't broken! Drop them off at the docking station, idiot. You're a fucking useless van!"
+		end
+	end
+
 # alias :pickup :accept
 # alias :dropoff :release
 

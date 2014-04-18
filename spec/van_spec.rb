@@ -66,7 +66,25 @@ describe "Van" do
 		# why does this test not work when I want to see if the bikes are being transferred? i know they are, but why does the test fail??
 	end
 
-	# it 'releases working bikes to the docking station' do
-		
-	# end
+	it 'releases working bikes to the docking station' do
+		real_garage = Garage.new
+		working_bike = double :bike, broken?: false
+		broken_bike = double :bike, broken?: true
+		station = DockingStation.new
+		van.accept(broken_bike)
+		van.accept(working_bike)
+		expect(van.bikes.count).to eq(2)
+		van.release_working_bikes_to(station)
+		expect(van.bikes.count).to eq(1)
+		expect(station.bikes.count).to eq(1)
+	end
+
+	it 'raises an error when the van tries to release working bikes to the garage' do
+		real_garage = Garage.new
+		working_bike = double :bike, broken?: false
+		broken_bike = double :bike, broken?: true
+		van.accept(broken_bike)
+		van.accept(working_bike)
+		expect { van.release_working_bikes_to(real_garage) }.to raise_error(RuntimeError)
+	end
 end
