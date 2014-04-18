@@ -34,7 +34,19 @@ class DockingStation
 		#and releases it to a person
 	end
 
-# alias :dock :accept
+	def accept_working_bikes_from(van)
+		van.release_working_bikes_to(self)
+	end
+
+	def release_working_bikes_to(object)
+		if object.class == Person
+			release_one_working_bike_to(object)
+		else
+			raise "The station only rents working bikes to people. Pick up some fucking broken bikes dick head...that's your fucking job isn't it??"
+		end
+	end
+
+alias :dock :accept
 # alias :rent :release
 
 end

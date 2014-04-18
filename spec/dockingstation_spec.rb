@@ -34,23 +34,21 @@ it 'releases one working bike to a person' do
 	expect(station.release_one_working_bike_to(person)).to eq([bike])
 end
 
-it 'does not release broken bikes to a person' do
+it 'raises an error when the station releases broken bikes to a person' do
 	station.accept(broken_bike_1)
 	expect { station.release_broken_bikes_to(person) }.to raise_error(RuntimeError)
 end
 
-# it 'accepts working bikes from the van' do
-	
-# end
+it 'accepts working bikes from the van' do
+	real_van = Van.new
+	real_van.accept(bike)
+	station.accept_working_bikes_from(real_van)
+end
 
-
-# it 'accepts any kind of bike from person- working and broken' do
-	
-# end
-
-# it 'does not accept broken bikes from the van' do
-	
-# end
+it 'raises an error if anyone other than a person tries to take a working bike from the station' do
+	station.accept(bike)
+	expect { station.release_working_bikes_to(van) }.to raise_error(RuntimeError)
+end
 
 
 # I think i can now remove the accept and release method out of the bike container

@@ -12,8 +12,11 @@ class Garage
 	end
 
 
-	def repair(bike)
-		bike.fix!
+	def repair
+		broken_bikes.each do |bike|
+			bike.fix!
+			self
+		end
 	end
 
 	def accept_broken_bikes_from(van)

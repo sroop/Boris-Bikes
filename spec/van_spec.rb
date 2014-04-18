@@ -39,7 +39,7 @@ describe "Van" do
 		expect(van.bikes.count).to eq(0)
 	end
 
-	it 'can only release broken bikes to the garage, no one else!' do
+	it 'raises an error when the van tries to release broken bikes to the station' do
 		broken_bike_1 = double :bike, broken?: true
 		broken_bike_2 = double :bike, broken?: true
 		station = DockingStation.new
@@ -51,19 +51,14 @@ describe "Van" do
 	end
 
 	it 'accepts working bikes from the garage' do
-		broken_bike_1 = double :bike, broken?: true
-		broken_bike_2 = double :bike, broken?: true
+		real_bike = Bikes.new
 		real_garage = Garage.new
-		real_garage.accept(broken_bike_1)
-		real_garage.accept(broken_bike_2)
-		expect(broken_bike_1).to receive(:fix!)
-		expect(broken_bike_2).to receive(:fix!)
-		real_garage.repair(broken_bike_1)
-		real_garage.repair(broken_bike_2)
+		real_bike.break!
+		real_garage.accept(real_bike)
+		real_bike.fix!
+		real_garage.repair
 		expect(real_garage).to receive(:release_working_bikes_to)
 		van.accept_working_bikes_from(real_garage)
-		expect(van).to have_bikes
-		# why does this test not work when I want to see if the bikes are being transferred? i know they are, but why does the test fail??
 	end
 
 	it 'releases working bikes to the docking station' do

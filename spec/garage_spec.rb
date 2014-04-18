@@ -1,5 +1,6 @@
 require 'garage'
 require 'van'
+require 'bikes'
 
 describe "The Garage" do
 
@@ -12,10 +13,12 @@ describe "The Garage" do
 
 
 	it 'repairs broken bikes' do
-		garage.accept(broken_bike_1)
-		expect(broken_bike_1).to receive(:fix!)
-		garage.repair(broken_bike_1)
-		expect(broken_bike_1).not_to be_broken
+		real_bike = Bikes.new
+		real_bike.break!
+		garage.accept(real_bike)
+		real_bike.fix!
+		garage.repair
+		expect(real_bike).not_to be_broken
 	end
 
 	it 'accepts broken bikes from the van' do
@@ -25,20 +28,22 @@ describe "The Garage" do
 
 	it 'releases working bikes to the van' do
 		real_van = Van.new
-		garage.accept(broken_bike_1)
+		real_bike = Bikes.new
+		garage.accept(real_bike)
 		expect(garage).to have_bikes
-		expect(broken_bike_1).to receive(:fix!)
-		garage.repair(broken_bike_1)
+		real_bike.fix!
+		garage.repair
 		garage.release_working_bikes_to(real_van)
 		expect(garage).to_not have_bikes
 		expect(real_van).to have_bikes
 	end
 
 	it 'only releases working bikes to the van, no one else!' do
-		garage.accept(broken_bike_1)
+		real_bike = Bikes.new
+		garage.accept(real_bike)
 		expect(garage).to have_bikes
-		expect(broken_bike_1).to receive(:fix!)
-		garage.repair(broken_bike_1)
+		real_bike.fix!
+		garage.repair
 		expect { garage.release_working_bikes_to(person) }.to raise_error(RuntimeError)
 	end
 

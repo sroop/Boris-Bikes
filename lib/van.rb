@@ -37,11 +37,13 @@ class Van
 			station.bikes << bike
 			end
 		else
-			raise "Those bikes aren't broken! Drop them off at the docking station, idiot. You're a fucking useless van!"
+			raise "Fixed bikes must be dropped off at the docking station, idiot. Useless van!"
 		end
 	end
 
-# alias :pickup :accept
-# alias :dropoff :release
+alias :pickup_broken_bikes_from :accept_broken_bikes_from
+alias :dropoff_broken_bikes_to :release_broken_bikes_to
+alias :pickup_fixed_bikes_from :accept_working_bikes_from
+alias :dropoff_fixed_bikes_to :release_working_bikes_to
 
 end
