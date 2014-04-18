@@ -20,4 +20,15 @@ class Garage
 		van.release_broken_bikes_to(self)
 	end
 
+	def release_working_bikes_to(van)
+		if van.class == Van
+			working_bikes.each do |bike|
+			release(bike)
+			van.bikes << bike
+			end
+		else
+			raise "I'm sorry, are you a van?? No, I didn't think so... JOG ON."
+		end
+	end
+
 end
