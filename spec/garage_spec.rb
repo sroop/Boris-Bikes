@@ -42,9 +42,10 @@ describe "The Garage" do
 		expect { garage.release_working_bikes_to(person) }.to raise_error(RuntimeError)
 	end
 
+	# it 'says it has no bikes when there are no working bikes to release to the van' do
+		
+	# end
 
-	# and then for the van to release working bikes to the docking station
-	
 	#then I need to create a person class..
 
 	# problems: accepting and releasing broken bikes van- dockingstation, van- garage are repetitive. accepting broken bikes is the same as the object its interacting with releasing to it. hmm...

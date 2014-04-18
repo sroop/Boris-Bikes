@@ -16,9 +16,13 @@ class Van
 	end
 
 	def release_broken_bikes_to(garage)
-		broken_bikes.each do |bike| 
+		if garage.class == Garage
+			broken_bikes.each do |bike| 
 			release(bike)
 			garage.bikes << bike
+			end
+		else
+			raise "Errr...you can't release broken bikes back into the station, doofus! They need to be repaired at the garage."
 		end
 	end
 
