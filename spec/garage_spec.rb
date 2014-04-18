@@ -51,6 +51,4 @@ describe "The Garage" do
 		
 	# end
 
-	#then I need to create a person class..
-
 end

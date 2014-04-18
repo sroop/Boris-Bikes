@@ -20,10 +20,6 @@ class DockingStation
 		else
 			raise "Nice try you fucking idiot!!"
 		end
-		#takes a list of broken bikes
-		#deletes them out of the station's container
-		#and releases them to the van
-		#the van accepts these into his own container
 	end
 
 	def release_one_working_bike_to(person)
@@ -42,7 +38,7 @@ class DockingStation
 		if object.class == Person
 			release_one_working_bike_to(object)
 		else
-			raise "The station only rents working bikes to people. Pick up some fucking broken bikes dick head...that's your fucking job isn't it??"
+			raise "The station only rents working bikes to people..."
 		end
 	end
 
