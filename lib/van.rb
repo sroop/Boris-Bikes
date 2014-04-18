@@ -26,6 +26,10 @@ class Van
 		end
 	end
 
+	def accept_working_bikes_from(garage)
+		garage.release_working_bikes_to(self)
+	end
+
 # alias :pickup :accept
 # alias :dropoff :release
 

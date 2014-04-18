@@ -50,9 +50,21 @@ describe "Van" do
 		expect { van.release_broken_bikes_to(station) }.to raise_error(RuntimeError)	
 	end
 
-	# it 'accepts working bikes from the garage' do
-		
-	# end
+	it 'accepts working bikes from the garage' do
+		broken_bike_1 = double :bike, broken?: true
+		broken_bike_2 = double :bike, broken?: true
+		real_garage = Garage.new
+		real_garage.accept(broken_bike_1)
+		real_garage.accept(broken_bike_2)
+		expect(broken_bike_1).to receive(:fix!)
+		expect(broken_bike_2).to receive(:fix!)
+		real_garage.repair(broken_bike_1)
+		real_garage.repair(broken_bike_2)
+		expect(real_garage).to receive(:release_working_bikes_to)
+		van.accept_working_bikes_from(real_garage)
+		expect(van).to have_bikes
+		# why does this test not work when I want to see if the bikes are being transferred? i know they are, but why does the test fail??
+	end
 
 	# it 'releases working bikes to the docking station' do
 		

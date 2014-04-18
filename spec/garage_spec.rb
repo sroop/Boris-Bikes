@@ -48,6 +48,4 @@ describe "The Garage" do
 
 	#then I need to create a person class..
 
-	# problems: accepting and releasing broken bikes van- dockingstation, van- garage are repetitive. accepting broken bikes is the same as the object its interacting with releasing to it. hmm...
-
 end
